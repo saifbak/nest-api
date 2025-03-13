@@ -1,0 +1,24 @@
+services:
+  dev-db:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432" # Maps port 5432 on the host to port 5432 in the container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    networks:
+      - freecodecamp
+  test-db:
+    image: postgres:15-alpine
+    ports:
+      - "5435:5432" # Maps port 5432 on the host to port 5432 in the container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: nest
+    networks:
+      - freecodecamp
+
+networks:
+  freecodecamp:
